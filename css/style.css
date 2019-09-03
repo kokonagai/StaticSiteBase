@@ -1,0 +1,611 @@
+/* NOTES
+16px is typical base body size
+to get ie. 14 px, divide 14 by 16 times 100 (for percentage when 16 is set at 100% */
+/* CSS TABLE OF CONTENTS
+
+# BASE CONTENTS
+    # TYPOGRAPHY   
+        #BODY
+        #HEADING
+        #PARAGRAPH
+        #LINKS
+        #BLOCKQUOTE
+        #LISTS
+        #HELPERS
+
+    #MEDIA
+        #IMAGES
+    #COMPONENTS
+        #BUTTONS
+# BASE LAYOUT
+    # BASE GRID
+# BASE STRUCTURE
+    # HEADER and FOOTER
+    # NAVIGATION
+        # TOGGLE NAV
+    # MAIN SECTIONS
+        # HERO
+
+
+*/
+
+/* Typography */
+body {
+    color: black;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 87.5%; /* 14px */
+    line-height: 1.5em; /* 16px * 1.5em = 24px */
+}
+
+/* HEADINGS
+    Based upon a Traditional Typographich Scale
+    16 18 21 24 36 48
+*/
+
+h1, h2, h3, h4, h5, h6 {
+    /* margin-top: .5em
+    margin-bottom: 0.5em; - more defined way*/
+    margin: .5em 0;
+}
+
+h1 {
+    font-size: 3em; /* 48px / 16px = 3em */
+    line-height: 1em;
+}
+h2 {
+    font-size: 2.25em; /* 36px / 16px = 2.25em */
+    line-height: 1.1em;
+}
+h3 {
+    font-size: 1.5em; /* 24px / 16px = 1.5em */
+    line-height: 1.2em;
+}
+h4 {
+    font-size: 1.3125em; /* 21px / 16px = 1.3125em */
+    line-height: 1.3em;
+}
+h5 {
+    font-size: 1.125em; /* 18px / 16px = 1.125em */
+    line-height: 1.4em;
+}
+h6 {
+    font-size: 1em; /* 16px / 16px = 1em */
+    line-height: 1.5em;
+}
+
+/* PARAGRAPHS
+p+p {
+    text-indent: 1em - adds indentations to paragraphs
+} */
+p {
+    margin: 0 0 .5em 0;
+    max-width: 35em;
+}
+
+/* LINKS */
+a { color: #39c; text-decoration: none; }
+a:hover {color: #069; text-decoration: underline}
+a:focus { color: #39c; }
+a:visited { color: #036;}
+
+/* BLOCKQUOTES */
+blockquote {
+    font-size: 1.142em;
+    margin: 1.5em 0;
+    padding: 1.5em;
+    border-top: 0px solid #ccc;
+    border-bottom: 0px solid #ccc;
+}
+
+blockquote cite {
+    display: block;
+    font-size: .875em;
+    opacity: 0.8;
+}
+
+blockquote cite:before{
+    content: '\2014';
+    margin-right: 0.25em;
+}
+
+/* HELPERS */
+.text-centered {
+    text-align: center;
+}
+
+.hidden {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+}
+
+.subheader {
+    color: #999;
+    margin-top: 1em;
+    font-style: normal;
+    font-weight: normal;
+    clear: both;
+}
+
+/* HORIZONTAL RULES */
+hr {
+    border: 0;
+    height: 1px;
+    background: #ddd;
+    margin: 2em 0;
+}
+
+/* MEDIA */
+/* IMAGES */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* COMPONENTS */
+/* BUTTONS */
+button{
+    font-size: inherit;
+}
+
+button, 
+a.button {
+    display: inline-block;
+    background: rgb(97, 187, 240);
+    border: 1px solid rgb(53, 171, 192);
+    color: #fff;
+    padding: 0.75em 1em;
+    -webkit-border-radius: 0.32em;
+    -moz-border-radius: 0.32em;
+    border-radius: 0.32em;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    border: none;
+    cursor: pointer;
+    line-height: 1em;
+}
+
+a.button:hover,
+a.button.alt:hover,
+button:hover{
+    background-color: #003;
+    color: #fff;
+    border-color: #003;
+    text-decoration: none;
+}
+
+a.button.alt{
+    background-color: transparent;
+    border: 1px solid rgb(81, 193, 238);
+    color: rgb(50, 116, 155);
+}
+
+/* BASE LAYOUT */
+
+/* MEDIA QUERIES
+    #DEFAULT/#SMALL (Mobile First) 0-767px+
+    #MEDIUM: min-width: 768px+
+    #LARGE: min-width: 1050px+
+    #EXTRALARGE: min-width: 1250px+
+*/
+
+/* SMALL+ (MOBILE FIRST)*/
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 4%;
+}
+
+/* SMALL-MEDIA QUERY (e.g. for mobile overrides) */
+@media (max-width: 767px) {
+    /* Inherits Small/Mobile Body Type from Above */
+    /* Inherits Small/Mobile Fluid Width from Above */
+}
+
+/* MEDIUM+ MEDIA QUERY */
+@media (min-width: 768px) {
+    /* Inherits Small/Mobile Body Type from Above */
+    /* Inherits Small/Mobile Fluid Width from Above */
+}
+
+/* LARGE+ MEDIA QUERY */
+@media (min-width: 1050px) {
+    /* LARGE BODY TYPE */
+    body {
+        font-size: 100%; 
+        /* 16px; */
+    }
+    /* FIXED WIDTH */
+    .container {
+        max-width: 1000px;
+    }
+}
+
+/* EXTRA-LARGE+ MEDIA QUERY */
+@media (min-width: 1250px) {
+    body{
+        font-size: 112.5%;
+        /* 18px; */
+    }
+    .container {
+        max-width: 1200px;
+    }
+}
+
+/* GRID */
+.row > .column {
+    margin-bottom: 2%;
+}
+
+@media (min-width: 768px) {
+    .row {
+        margin-left: -1%;
+        margin-right: -1%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .row.swapped {
+        flex-direction: row-reverse;
+    }
+    .row.centered {
+        flex-direction: column;
+    }
+    .row.centered .column {
+        flex-grow: 0;
+    }
+    .row > .column {
+        margin: 0 1% 2% 1%;
+        flex-grow: 1;
+    }
+    .row > .column.one-half {
+        width: 48%;
+    }
+    .row > .column.one-third {
+        width: 31.3333%;
+      }
+    .row > .column.two-thirds {
+        width: 64.6666%;
+    }
+    .row > .column.one-fourth {
+        width: 23%;
+    }
+    .row > .column.three-fourths {
+        width: 73%;
+    }
+    .row > .column.push-one-third {
+        margin-left: 34.3333%;
+    }
+    .row > .column.push-one-fourth {
+        margin-left: 26%;
+    }
+    .row > .column.centered {
+        flex-grow: 0;
+    }
+}
+
+/* FOR DEMO PURPOSES ONLY */
+.demo .column {
+    padding: 1em;
+    background: #ddd;
+    text-align: center;
+}
+
+.demo .column p {
+    margin: 0;
+    padding: 0 .5em;
+    max-width: none;
+}
+
+.demo {
+    padding: 2em 0;
+}
+
+.demo:after {
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 5px;
+    text-align: center;
+    width: 100%;
+    content: 'Small (less than 768px)';
+    color: #fff;
+    background: #993333;
+}
+
+@media (min-width: 768px) {
+    body.demo:after {
+        content: 'Medium (768px - 1049px)';
+        background: #bcb83d;
+    }
+}
+
+@media (min-width: 1050px) {
+    body.demo:after {
+        content: 'Large (1050px - 1249px)';
+        background: #669933;
+    }
+}
+
+@media (min-width: 1250px) {
+    body.demo:after {
+        content: 'Extra Large (1250px +)';
+        background: #0099cc;
+    }
+}
+
+.demo .column p:last-child {
+    margin-bottom: 0;
+}
+
+/* SITE STRUCTURE */
+
+.container {
+    
+}
+
+
+header {
+    padding: 1em 0;
+  
+}
+
+@media (min-width: 768px) {
+    header .container {
+       
+        display: flex;
+        justify-content: space-between;
+        
+    }
+
+}
+
+header a, footer a {
+    text-decoration: none;
+    color: #333;
+    text-align: center;
+}
+
+.site-identity h1 a {
+    display: inline-block;
+    padding: .6em 0;
+}
+
+.site-identity h1 {
+    font-size: 1.5em;
+    margin: 0;
+}
+
+.site-identity {
+    
+}
+/* SITE NAVIGATION */
+
+.site-navigation {
+    
+
+}
+
+.site-navigation ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    }
+
+.site-navigation ul li {
+display: inline-block; 
+}
+
+.site-navigation ul li a {
+    display: block;
+    padding: 1em 1.5em;
+    transition: all 2s ease;
+
+ }
+
+ @media (max-width:767px) {
+ .site-navigation ul li a:hover {
+    background: rgb(128, 173, 216);
+    color: #fff;
+
+ }
+}
+
+
+
+/* MENU BUTTON_____________________________*/
+/* Below media query: hides the menu button and makes the list items inline on screens bigger than 768px*/
+.menu-button {
+    position: absolute;
+    top: 1.5em;
+    right: 4%;
+  }
+  
+  @media (min-width: 768px) {
+    .menu-button {
+      position: absolute;
+      top: -9999px;
+      left: -9999px;
+    }
+  }
+  
+/* NAVICON */
+
+.navicon {
+    color: rgba(255,255,255,0); /*transparent*/
+    cursor: default;
+}
+
+/* @media (max-width:767px) {
+    .navicon {
+        top: 2em;
+    }
+} */
+
+/*hides menu on small screens*/
+
+.navicon::selection {
+    color: rgba(255,255,255,0);
+}
+
+.navicon::after {
+    cursor: pointer;
+    display: inline-block;
+    content: "\2630";
+    font-size: 1.5em;
+    color: rgba(0,0,0,1);
+}
+
+.expanded .navicon::after {
+    content: "\2715";
+    transform: rotate(90deg);
+    transition: all .2s ease-out;
+}
+
+/* TOGGLE NAV */
+
+@media (max-width: 767px) {
+
+    .toggle-nav {
+        text-align: left;
+    }
+
+    .toggle-nav .site-navigation ul {
+        /* display: none; */
+        max-height: 0;
+        overflow: hidden;
+        /* transition: .4s all ease-out; */
+    }
+
+    .toggle-nav .site-navigation.expanded ul {
+        /* display: block; */
+        max-height: 500px;
+        /* transition: .8s all ease-out; */
+    }
+    
+    .toggle-nav .site-navigation ul li {
+        display: block;
+        text-align: center;
+    }
+    
+    .toggle-nav .site-navigation ul li a {
+        transition: .2s all ease-out;
+    }
+    
+    .toggle-nav .site-navigation ul li a:hover {
+        background: rgb(174, 247, 252);
+        color: #fff;
+    }
+
+}
+
+
+main {
+}
+
+footer {
+    text-align: center;
+}
+
+/* MAIN SECTIONS */
+
+section {
+    padding: 3em 0;
+}
+
+.hero {
+    text-align: center;
+    background: #ddd;
+    padding: 6em 1em;
+    margin-top: 1em;
+}
+
+.hero h2 {
+    font-size: 3em;
+}
+
+.hero p {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* SUB PAGES */
+article {
+    max-width: 38em;
+    margin: 0 auto;
+}
+
+article h1 {
+    text-align: center;
+    font-size: 2.5em;
+}
+
+article h2 {
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: normal;
+}
+
+.date {
+    font-size: .8em;
+    color: #aaa;
+    text-align: center;
+    margin: 1em auto;
+}
+
+/* article does not need to be here but it's specifically for the article hance the article tag. this adds margin between the end of p to h3 for a clearly defined paragraph indention */
+article p + h3 {
+    margin-top: 1.5em;
+}
+
+/* if you want block quote to be part of base, move it up in css */
+
+blockquote {
+    margin: 2em 0;
+    padding: 1em;
+    font-size: 1.5em;
+    font-style: italic;
+    line-height: 1.2em;
+    border-left: 15px solid rgb(212, 238, 237);
+}
+
+form {
+    max-width: 600px;
+}
+
+label, input, textarea {
+    display: block;
+    width: 100%;
+}
+
+label {
+    margin-top: 1em;
+}
+
+textarea {
+    min-height: 150px;
+}
+
+
+input[type=text], textarea {
+    border: 1px solid #ccc;
+    padding: 1em;
+    font-size: 1em;
+    background: #eee;
+    color: #444;
+}
+
+input[type=submit] {
+    margin-top: 1em;
+    width: auto;
+}
